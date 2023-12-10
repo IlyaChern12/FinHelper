@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='coin_money_icon-icons.com_51091.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/dataTables.bootstrap5.css') }}">
+</head>
+<body>
+    <div class="hat">
+        <div class="name_box">
+            <img src="{{ url_for('static', filename='piggy-bank_115176.png') }}" width="21px">
+            <div class="main_name">Finance Helper</div>
+        </div>
+        <div class="status_change">
+            {% block status %}{% endblock %}
+        </div>
+    </div>
+    <div class="free_space"></div>
+    {% block body %}{% endblock %}
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js"></script>
+</body>
+</html>

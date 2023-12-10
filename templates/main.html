@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block status %}
+<div>
+    <a class="main_ref" href="/logout">Выход</a>
+</div>
+{% endblock %}
+
+{% block body%}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+<div class="main_block">
+	<div class="notes_block">
+		<div class="inner_notes">
+			<div id="body">
+				<div class="notes_hat">
+					<h1>Ваш список покупок</h1>
+					{% for cat, msg in get_flashed_messages(True) %}
+						<div class="flash {{cat}}">{{msg}}</div>
+					{% endfor %}
+				</div>
+				<form action="/add_in" method="post">
+					<div class="add_block">
+						{{ form.hidden_tag() }}
+						{% for field in form if field.name not in ['csrf_token', 'submit'] %}
+							<p>	{% if field.errors %}
+									{{ field() }}
+								<p class="invalid">
+									{% for e in field.errors %}
+										{{ e }}
+									{% endfor %}
+								</p>
+								{% else %}
+									{{ field() }}
+								{% endif %}
+							</p>
+						{% endfor %}
+						<p> {{ form.submit() }}</p>
+					</div>
+				</form>
+				{% if notes %}
+					<div class="del_menu">
+						<button id="delete_notes">Удалить выбранный(е) продукт(ы)</button>
+						<div id="msg"></div>
+					</div>
+					<table id="data" class="datatable">
+						<thead>
+							<tr>
+								<th><input id="check_all" type="checkbox"></th>
+								<th>Название</th>
+								<th>Категория</th>
+								<th>Дата</th>
+								<th>Цена</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for p in notes %}
+								{% set row_class = 'odd_col' %}
+								<tr class="{{ row_class }}">
+									<td><input type="checkbox" name="row-check" value="{{ p['id'] }}"></td>
+									<td>{{ p['product'] }}</td>
+									<td>{{ p['category'] }}</td>
+									<td>{{ p['buydate'] }}</td>
+									<td>{{ p['cost'] }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{% else %}
+						<div><p style="font-size: 15pt;">Записи отсутствуют</p></div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+    $(document).ready(function () {
+      $('#data').DataTable( {
+		"language": {
+    		"search": "Фильтровать покупки:",
+			"lengthMenu": "Показать _MENU_ покупок",
+			"info": "Показано с _START_ по _END_ из _TOTAL_ покупок",
+			"infoEmpty": "Показано с 0 по 0 из 0 покупок",
+			"paginate": {
+				"first": "Первая",
+				"last": "Последняя",
+				"next": "Cледующая",
+				"previous": "Предыдущая",
+				"infoFiltered": "",
+			},
+			"infoFiltered": "",
+			"zeroRecords": "Не найдено подходящих записей",
+		},
+		"lengthMenu": [[9, 25, 50, -1], [9, 25, 50, "Все"]]
+	  } );
+    });
+</script>
+{% endblock %}

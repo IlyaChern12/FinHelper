@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block status %}
+<div>
+    <a class="main_ref" href="/login">Вход</a>
+</div>
+{% endblock %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block body%}
+<div class="outter_block">
+    <div class="main_block">
+        {% for cat, msg in get_flashed_messages(True) %}
+        <div>{{msg}}</div>
+        {% endfor %}
+        <div class="reg_block">
+            <div class="registration">
+                <h1>Регистрация</h1>
+                <form class="reg_form" action="/register" method="post">
+                    {% for cat, msg in get_flashed_messages(True) %}
+                    <div class="flash {{cat}}">{{msg}}</div>
+                    {% endfor %}
+                    {{ form.hidden_tag() }}
+                    {% for field in form if field.name not in ['csrf_token', 'submit'] %}
+                        <p> {{ field.label() }} 
+                            {% if field.errors %}
+                                {{ field() }}
+                            <p class="invalid">
+                                {% for e in field.errors %}
+                                    {{ e }}
+                                {% endfor %}
+                            </p>
+                            {% else %}
+                                {{ field() }}
+                            {% endif %}
+                        </p>
+                    {% endfor %}
+                    <p> {{ form.submit(class="reg_sub") }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

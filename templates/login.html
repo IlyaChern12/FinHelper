@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block status %}
+<div>
+    <a class="main_ref" href="/register">Регистрация</a>
+</div>
+{% endblock %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+{% block action %}
+
+{% endblock %}
+
+{% block body%}
+<div class="outter_block">
+    <div class="main_block">
+        <div class="log_block">
+            <div class="autorization">
+                <h1>Авторизация</h1>
+                <form class="login_form" action="/login" method="post">
+                    {% for cat, msg in get_flashed_messages(True) %}
+                    <div class="flash {{cat}}">{{msg}}</div>
+                    {% endfor %}
+                    {{ form.hidden_tag() }}
+                    <p> {{ form.username.label() }} 
+                        {% if form.username.errors %}
+                            {{ form.username() }}
+                        <span>
+                            {% for e in form.username.errors %}
+                                {{ e }}
+                            {% endfor %}
+                        </span>
+                        {% else %}
+                            {{ form.username() }}
+                        {% endif %}
+                    </p>
+                    <p> {{ form.passwd.label() }} 
+                        {% if form.passwd.errors %}
+                            {{ form.passwd() }}
+                        <span>
+                            {% for e in form.passwd.errors %}
+                                {{ e }}
+                            {% endfor %}
+                        </span>
+                        {% else %}
+                            {{ form.passwd() }}
+                        {% endif %}
+                    </p>
+                    <p> {{ form.show_password }} </p>
+                    <p> {{ form.remainme.label() }}  {{ form.remainme() }}</p>
+                    <p> {{ form.submit() }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
