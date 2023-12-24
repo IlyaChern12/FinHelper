@@ -150,7 +150,7 @@ def add_in():
     if form.validate_on_submit():                                                   
             res = dbase.addNote(form.product.data, form.category.data,              # внесение записи в бд с указанием юзернейма
                                 form.buydate.data, form.cost.data, 
-                                session['username'])
+                                request.cookies.get('username'))
             if res:                                                                 
                 flash("Запись добавлена", category="success")
                 return redirect(url_for('main'))
