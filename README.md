@@ -1206,7 +1206,7 @@ class NoteIn(FlaskForm):
 
 Авторизация
 
-![Таблица](https://github.com/IlyaChern12/FinHelper/blob/main/main.jpg)
+![Таблица](https://github.com/IlyaChern12/FinHelper/blob/main/main.png)
 
 Таблица
 
