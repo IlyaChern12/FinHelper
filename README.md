@@ -1225,8 +1225,9 @@ class NoteIn(FlaskForm):
 
 <div style="text-align: center"> <h2><a name="source">СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</a></h2></div>
 
-1. <a href="https://getbootstrap.ru/?ysclid=lqih7abexv567911255">Bootstrap</a>
-2. <a href="https://www.datatables.net/">Datatables</a>
-3. <a href="https://habr.com/ru/articles/">Хабр</a>
-4. <a href="https://www.youtube.com/watch?v=6jxveKOdyNg&list=PLA0M1Bcd0w8yrxtwgqBvT6OM4HkOU3xYn&pp=iAQB">YouTube</a>
-5. <a href="https://stackoverflow.com/">StackOverflow</a>
+1. Flask для начинающих / Хабр - URL: <a href="https://habr.com/ru/articles/783574/">https://habr.com/ru/articles/783574/</a> (Дата обращения: 10.11.2023)
+2. SQLite — замечательная встраиваемая БД (часть 1) / Хабр - URL: <a href="https://habr.com/ru/articles/149356/">https://habr.com/ru/articles/149356/</a> (Дата обращения: 10.11.2023)
+3. Документация на Flask (русский перевод) - Выпуск 0.10.1 URL: <a href="https://buildmedia.readthedocs.org/media/pdf/flask-russian-docs/latest/flask-russian-docs.pdf">https://buildmedia.readthedocs.org/media/pdf/flask-russian-docs/latest/flask-russian-docs.pdf</a> (Дата обращения: 20.10.2023)
+4. Flask #1: Что это такое? Простое WSGI-приложение - URL: <a href="https://www.youtube.com/watchv=6jxveKOdyNg&list=PLA0M1Bcd0w8yrxtwgqBvT6OM4HkOU3xYn&pp=iAQB">https://www.youtube.com/watchv=6jxveKOdyNg&list=PLA0M1Bcd0w8yrxtwgqBvT6OM4HkOU3xYn&pp=iAQB</a> (Дата обращения: 18.10.2023)
+5. Bootstrap RUS - URL: <a href="https://getbootstrap.ru/?ysclid=lqih7abexv567911255">https://getbootstrap.ru/?ysclid=lqih7abexv567911255</a> (Дата обращения: 25.10.2023)
+6. DataTables | Table plug-in for jQuery - URL: <a href="https://www.datatables.net/">https://www.datatables.net/</a> (Дата обращения: 2.11.2023)
