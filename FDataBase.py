@@ -19,7 +19,7 @@ class FDataBase:
                 self.__cur.execute(f"SELECT COUNT() as `count` FROM users WHERE username LIKE '{username}'")
                 res = self.__cur.fetchone()
                 if res['count'] > 0:
-                    print("Пользователь с таким логином уже существует")
+                    #print("Пользователь с таким логином уже существует")
                     return False
 
                 tm = math.floor(time.time()) # время авторизации
@@ -28,7 +28,7 @@ class FDataBase:
                 # добавление юзера в бд
 
             except sqlite3.Error as e:
-                print("Ошибка добавления пользователя в БД "+str(e))
+                #print("Ошибка добавления пользователя в БД "+str(e))
                 return False
     
             return True
@@ -40,13 +40,14 @@ class FDataBase:
             res = self.__cur.fetchone()
             # извлечение записи
             if not res:
-                print("Пользователь не найден")
+                #print("Пользователь не найден")
                 return False 
  
             return res
         
         except sqlite3.Error as e:
-            print("Ошибка получения данных из БД "+str(e))
+            #print("Ошибка получения данных из БД "+str(e))
+            pass
  
         return False
     
@@ -57,13 +58,14 @@ class FDataBase:
             res = self.__cur.fetchone()
             # извлечение записи
             if not res:
-                print("Пользователь не найден")
+                #print("Пользователь не найден")
                 return False 
  
             return res
         
         except sqlite3.Error as e:
-            print("Ошибка получения данных из БД "+str(e))
- 
+            #print("Ошибка получения данных из БД "+str(e))
+            pass
+        
         return False
     
